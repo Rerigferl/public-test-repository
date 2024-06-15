@@ -7,19 +7,19 @@ jobs:
   job:
     runs-on: ubuntu-latest
     steps: 
-      - name: Fetch
+      - name: Fetching Data (LLC)
         uses: actions/checkout@v4
         with:
           repository: 'Azukimochi/LightLimitChangerForMA'
           submodules: true
           
-      - name: Build Repository
+      - name: Create Unitypackage
         uses: rerigferl/create-unitypackage@v1
         with:
           input: "."
           output: "test.unitypackage"
           excludeBaseDir: true
-          rootDir: 'Packages/io.github.azukimochi'
+          rootDir: 'Packages/io.github.azukimochi.light-limit-changer'
           generateGuid: true
 
       - run: |
