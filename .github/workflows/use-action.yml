@@ -24,4 +24,9 @@ jobs:
 
       - run: |
           ls -l
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: output unitypackage
+          path: test.unitypackage
           
