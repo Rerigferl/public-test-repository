@@ -1,0 +1,27 @@
+name: Use Action
+
+on:
+  workflow_dispatch:
+
+jobs:
+  job:
+    runs-on: ubuntsu-latest
+    steps: 
+      - name: Fetch
+        uses: actions/checkout@v4
+        with:
+          repository: 'Azukimochi/LightLimitChangerForMA'
+          submodules: true
+          
+      - name: Build Repository
+        uses: rerigferl/create-unitypackage@v1
+        with:
+          input: "."
+          output: "test.unitypackage"
+          excludeBaseDir: true
+          rootDir: 'Packages/io.github.azukimochi'
+          generateGuid: true
+
+      - run: |
+          ls -l
+          
